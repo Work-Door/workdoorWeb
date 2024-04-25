@@ -10,6 +10,7 @@ function Input() {
     </div>
     <div class="input-group">
         <input type="text" placeholder="exemple@email.com"></input>
+        
     </div>
     <div class="input-group">
         <input type="password" placeholder="********"></input>
