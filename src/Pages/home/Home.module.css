@@ -190,14 +190,14 @@ main #comoFunciona #componentesComoFunc{
 }
 main #comoFunciona #componentesComoFunc article .imgIconeComuFunciona{
     /* background-color: pink; */
-    width: fit-content;
+    /* width: fit-content; */
     height: 18%;
     margin-bottom: 2vh;
     
 }
 main #comoFunciona #componentesComoFunc article .imgIconeComuFunciona img{
     height: 100%;
-    width: fit-content;
+    /* width: fit-content; */
 }
 main #comoFunciona #componentesComoFunc article{
     width: 30%;
