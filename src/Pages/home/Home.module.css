@@ -1,100 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-}
-main{
-    overflow-x: hidden;
-    min-height: 100vh;
-}
-:root{
-    --primaryTextColor: #1F1F20;
-}
-.ciano{
-    color: #00BABF;
-}
-.laranja{
-    color: #FF791A;
-}
-main header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 94vw;
-    padding: 0 2vw 0 4vw;
-    margin: auto;
-    /* background-color: yellow; */
-    height: 16.5vh;
-    box-shadow: 0px 4px 10px 0px #4e4e4e47
-}
-header .logo{
-    width: 7vw;
-    height: 11vh;
-    /* background-color: rgb(137, 82, 82); */
-}
-header .logo img{
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-}
-
-header #menuLista{
-    /* background-color: green; */
-    width: 50%;
-    height: 40%;
-    background-color: #fff;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-
-}
-header #menuLista ul{
-    display: flex;
-    justify-content: space-between;
-    text-decoration: none;
-    list-style: none;
-    width: 80%;
-    margin: auto;
-}
-header #menuLista ul li{
-    cursor: pointer;
-}
-header #btnsTopo{
-    /* background-color: aqua; */
-    width: 18%;
-    height: 40%;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 5vw;
-}
-header #btnsTopo #btnLogin{
-    width: 40%;
-    background-color: #fff;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 2px 3px 0px 0px #8b8b8b;
-    cursor: pointer;
-    font-weight: 500;
-
-}
-header #btnsTopo #btnCadastro{
-    width: 50%;
-    background-color: #8b8b8b;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 2px 3px 0px 0px #000;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 500;
-}
-
-main #principalTopo{ 
-    /* background-color: #FF791A; */
+#principalTopo{ 
+    /* background-color: #FF791A; 
     background-image: url(../../public/assets/fundoTopo.svg);
     background-repeat: no-repeat;
     background-position: center;
-    /* background-size: 100%; */
+    background-size: 100%; */
     width: 96vw;
     min-height: 68vh;
     height: 75vh;
@@ -106,7 +15,7 @@ main #principalTopo{
     box-shadow: 2px 5px 10px 0px #8b8b8b;
     
 }
-main #principalTopo #esquerdaTopo{
+#principalTopo #esquerdaTopo{
     width: 48%;
     /* margin-left: 2%; */
     display: flex;
@@ -118,21 +27,21 @@ main #principalTopo #esquerdaTopo{
     margin: auto;
 
 }
-main #principalTopo #esquerdaTopo h1{
+#principalTopo #esquerdaTopo h1{
     font-size: 3.4rem;
     line-height: 3.7rem;
 }
-main #principalTopo #esquerdaTopo p{
+#principalTopo #esquerdaTopo p{
     color: var(--primaryTextColor);
     font-size: 1.2rem;
     width: 80%;
 }
-main #principalTopo #esquerdaTopo div{
+#principalTopo #esquerdaTopo div{
     width: 40%;
     height: 20%;
     /* background-color: bisque; */
 }
-main #principalTopo #esquerdaTopo div button{
+#principalTopo #esquerdaTopo div button{
     width: 100%;
     height: 100%;
     border: none;
@@ -144,24 +53,24 @@ main #principalTopo #esquerdaTopo div button{
     box-shadow: #606D80 4px 4px 0px;
 }
 
-main #principalTopo #direitaTopo{
+#principalTopo #direitaTopo{
     width: 46%;
     height: 100%;
     /* margin-right: 2%; */
     /* background-color: green; */
 }
-main #principalTopo #direitaTopo div{
+#principalTopo #direitaTopo div{
     margin-top: 5%;
     width: 100%;
     height: 100%;
     /* background-color: pink; */
 }
-main #principalTopo #direitaTopo div img{
+#principalTopo #direitaTopo div img{
     width: 100%;
     height: 100%;
     filter: drop-shadow(0 0 10px #33333389);
 }
-main #comoFunciona{
+#comoFunciona{
     /* background-color: #beb1a8; */
     width: 90vw;
     /* min-height: 60vw; */
@@ -170,46 +79,46 @@ main #comoFunciona{
     margin-top: 12vh;
 
 }
-main #comoFunciona .divTitulo{
+#comoFunciona .divTitulo{
     margin: auto;
     width: 45vw;
     text-align: center;
     /* background-color: #00BABF; */
     margin-bottom: 8vh;
 }
-main #comoFunciona .divTitulo .tituloComoFunciona{
+#comoFunciona .divTitulo .tituloComoFunciona{
     font-size: 2.6rem;
     color: var(--primaryTextColor);
 
 }
-main #comoFunciona #componentesComoFunc{
+#comoFunciona #componentesComoFunc{
     display: flex;
     justify-content: space-between;
     /* background-color: rgb(128, 158, 128); */
     width: 100%;
 }
-main #comoFunciona #componentesComoFunc article .imgIconeComuFunciona{
+#comoFunciona #componentesComoFunc article .imgIconeComuFunciona{
     /* background-color: pink; */
     /* width: fit-content; */
     height: 18%;
     margin-bottom: 2vh;
     
 }
-main #comoFunciona #componentesComoFunc article .imgIconeComuFunciona img{
+#comoFunciona #componentesComoFunc article .imgIconeComuFunciona img{
     height: 100%;
     /* width: fit-content; */
 }
-main #comoFunciona #componentesComoFunc article{
+#comoFunciona #componentesComoFunc article{
     width: 30%;
     height: 55vh;
     /* background-color: orange; */
 }
-main #comoFunciona #componentesComoFunc article .textoComoFunc{
+#comoFunciona #componentesComoFunc article .textoComoFunc{
     margin-top: 4vh;
     /* background-color: #00BABF; */
     height: auto;
 }
-main #comoFunciona #componentesComoFunc article .textoComoFunc p{
+#comoFunciona #componentesComoFunc article .textoComoFunc p{
     width: 100%;
     font-size: 1rem;
     line-height: 2.4rem;
