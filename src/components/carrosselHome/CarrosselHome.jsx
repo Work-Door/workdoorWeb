@@ -15,7 +15,7 @@ const CardServico = ({ imagemSrc, altText, titulo, descricao, avaliacao }) => {
       </div>
       <h3 className={styles["cardServicoTitulo"]}>{titulo}</h3>
       <p className={styles["cardServicoDescricao"]}>{truncatedDescricao}</p>
-      <p className={styles["cardServicoAvaliacao"]}>Avaliação: <span id={styles.cardServicoAvaliacaoNota}>{avaliacao}</span></p>
+      <p className={styles["cardServicoAvaliacao"]}>Avaliação: <span id={styles["cardServicoAvaliacaoNota"]}>{avaliacao}</span></p>
       <p className={styles["cardServicoOrcamento"]}><b>Faça seu orçamento</b></p>
     </div>
   );
