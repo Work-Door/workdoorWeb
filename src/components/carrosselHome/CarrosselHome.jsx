@@ -1,5 +1,3 @@
-// CardServico.js
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './CarrosselHome.module.css'; // Importe o arquivo de estilo aqui
