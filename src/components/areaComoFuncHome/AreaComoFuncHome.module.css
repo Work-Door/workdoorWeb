@@ -1,0 +1,27 @@
+/* NomeDoArquivoDeEstilo.css */
+
+.comoFuncionaItem {
+    width: 30%;
+    height: 55vh;
+    margin-bottom: 2vh;
+  }
+  
+  .comoFuncionaItem .imgIconeComuFunciona {
+    height: 18%;
+    margin-bottom: 2vh;
+  }
+  
+  .comoFuncionaItem .imgIconeComuFunciona img {
+    height: 100%;
+  }
+  
+  .comoFuncionaItem .textoComoFunc {
+    margin-top: 4vh;
+  }
+  
+  .comoFuncionaItem .textoComoFunc p {
+    font-size: 1rem;
+    line-height: 2.4rem;
+    text-align: start;
+  }
+  
