@@ -26,7 +26,6 @@
 }
 .cardServico .cardServicoDescricao{
     min-height: 55px;
-    /* background-color: green; */
 }
 .cardServico .cardServicoDescricao, .cardServico .cardServicoAvaliacao{
     margin: 0.6rem 1vw;
