@@ -2,11 +2,11 @@ import React from "react";
 import style from "./Inputs.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const InputField = ({ type, placeholder, options, icon }) => {
+const InputField = ({ type, placeholder, value, onChange, options, icon }) => {
   return (
     <div className={`${style["inputs"]} ${style["custom-input"]}`}>
       {type === "select" ? (
-        <select>
+        <select value={value} onChange={onChange}>
           <option value="">{placeholder}</option>
           {options.map((option, index) => (
             <option key={index} value={option.value}>
@@ -16,8 +16,13 @@ const InputField = ({ type, placeholder, options, icon }) => {
         </select>
       ) : (
         <>
-          <input type={type} placeholder={placeholder} />
-          {icon && <FontAwesomeIcon icon={icon} className={style.icon}/>}
+          <input
+            type={type}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+          />
+          {icon && <FontAwesomeIcon icon={icon} className={style.icon} />}
         </>
       )}
     </div>

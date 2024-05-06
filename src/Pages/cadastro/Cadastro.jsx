@@ -12,24 +12,23 @@ import {
 
 const Cadastro = () => {
   const [etapaAtual, setEtapaAtual] = useState(1);
-  const [dadosFormulario, setDadosFormulario] = useState({
-    nome: "",
-    cnpj: "",
-    cep: "",
-    email: "",
-    telefone: "",
-    senha: "",
-    cpf: "",
-    tipoCadastro: "",
-  });
 
+  const [tipoCadastro, setTipoCadastro] = useState('');
+  const [nome, setNome] = useState('');
+  const [cnpj, setCnpj] = useState('');
+  const [cep, setCep] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [senha, setSenha] = useState('');
+  const [senhaEmpresa, setSenhaEmpresa] = useState('');
+  const [cpf, setCpf] = useState('');
   const options = [
     { value: "cliente", label: "Cliente" },
     { value: "empresa", label: "Empresa" },
   ];
 
   const avancarEtapa = () => {
-    console.log(etapaAtual);
+    console.log(nome, email, telefone, senha, tipoCadastro, cpf, cnpj, cep);
     setEtapaAtual(etapaAtual + 1);
   };
 
@@ -38,32 +37,31 @@ const Cadastro = () => {
     setEtapaAtual(etapaAtual - 1);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDadosFormulario({
-      ...dadosFormulario,
-      [name]: value,
-    });
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const dadosEnviar = {
-      nome: dadosFormulario.nome,
-      email: dadosFormulario.email,
-      telefone: dadosFormulario.telefone,
-      senha: dadosFormulario.senha,
-      tipoCadastro: dadosFormulario.tipoCadastro,
+      nomeEnviar: nome,
+      emailEnviar: email,
+      telefoneEnviar: telefone,
+      senhaEnviar: senha,
+      senhaEmpresaEnviar: senhaEmpresa,
+      cpfEnviar: cpf,
+      cnpjEnviar: cnpj,
+      cepEnviar: cep,
+      tipoCadastroEnviar: tipoCadastro,
     };
+    console.log("Dados do formulário enviar:", dadosEnviar);
 
-    if (dadosFormulario.tipoCadastro === "cliente") {
-      dadosEnviar.cpf = dadosFormulario.cpf;
-    } else if (dadosFormulario.tipoCadastro === "empresa") {
-      dadosEnviar.cnpj = dadosFormulario.cnpj;
-      dadosEnviar.cep = dadosFormulario.cep;
+    if (tipoCadastro === "cliente") {
+        dadosEnviar.cnpj = '';
+        dadosEnviar.senhaEmpresaEnviar = '';
+
+    } else if (tipoCadastro === "empresa") {
+      dadosEnviar.cpfEnviar = '';
+      dadosEnviar.senhaEnviar = '';
     }
 
-    console.log("Dados do formulário:", dadosEnviar);
+    console.log("Dados do formulário enviar:", dadosEnviar);
     // Aqui você poderia enviar os dados para o backend
   };
 
@@ -89,79 +87,80 @@ const Cadastro = () => {
                     placeholder="Tipo de cadastro"
                     name="tipoCadastro"
                     options={options}
-                    onChange={handleChange}
+                    value ={tipoCadastro}
+                    onChange={(e) => setTipoCadastro(e.target.value)}
                   />
                   <InputField
                     type="text"
                     placeholder="Nome"
-                    name="nome"
-                    value={dadosFormulario.nome}
-                    onChange={handleChange}
+                    name="nomeForm"
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
                     icon={faUser}
                   />
                   <InputField
                     type="email"
                     placeholder="Email"
-                    name="email"
-                    value={dadosFormulario.email}
-                    onChange={handleChange}
+                    name="emailForm"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     icon={faEnvelope}
                   />
                   <InputField
                     type="tel"
                     placeholder="Telefone"
-                    name="telefone"
-                    value={dadosFormulario.telefone}
-                    onChange={handleChange}
+                    name="telefoneForm"
+                    value={telefone}
+                    onChange={(e) => setTelefone(e.target.value)}
                     icon={faPhone}
                   />
                 </>
               )}
               {etapaAtual === 2 &&
-                dadosFormulario.tipoCadastro === "cliente" && (
+                tipoCadastro === "cliente" && (
                   <>
                     <InputField
                       type="text"
                       placeholder="CPF"
-                      name="cpf"
-                      value={dadosFormulario.cpf}
-                      onChange={handleChange}
+                      name="cpfForm"
+                      value={cpf}
+                      onChange={(e) => setCpf(e.target.value)}
                       icon={faUser}
                     />
                     <InputField
                       type="password"
                       placeholder="Senha"
-                      name="senha"
-                      value={dadosFormulario.senha}
-                      onChange={handleChange}
+                      name="senhaForm"
+                      value={senha}
+                      onChange={(e) => setSenha(e.target.value)}
                     />
                   </>
                 )}
               {etapaAtual === 2 &&
-                dadosFormulario.tipoCadastro === "empresa" && (
+                tipoCadastro === "empresa" && (
                   <>
                     <InputField
                       type="text"
                       placeholder="CNPJ"
-                      name="cnpj"
-                      value={dadosFormulario.cnpj}
-                      onChange={handleChange}
+                      name="cnpjForm"
+                      value={cnpj}
+                      onChange={(e) => setCnpj(e.target.value)}
                       icon={faBuilding}
                     />
                     <InputField
                       type="text"
                       placeholder="CEP"
-                      name="cep"
-                      value={dadosFormulario.cep}
-                      onChange={handleChange}
+                      name="cepForm"
+                      value={cep}
+                      onChange={(e) => setCep(e.target.value)}
                       icon={faBuilding}
                     />
                     <InputField
                       type="password"
                       placeholder="Senha"
-                      name="senha"
-                      value={dadosFormulario.senha}
-                      onChange={handleChange}
+                      name="senhaForm"
+                      value={senhaEmpresa}
+                      onChange={(e) => setSenhaEmpresa(e.target.value)}
                     />
                   </>
                 )}
