@@ -1,7 +1,10 @@
+import api from "../../api";
 import React, { useState } from "react";
 import style from "./Cadastro.module.css";
 import SideBanner from "../../components/sideBanner/SideBanner";
 import InputField from "../../components/inputs/Inputs";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   faUser,
@@ -11,8 +14,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Cadastro = () => {
-  const [etapaAtual, setEtapaAtual] = useState(1);
+const navigate = useNavigate();
 
+  const [etapaAtual, setEtapaAtual] = useState(1);
   const [tipoCadastro, setTipoCadastro] = useState('');
   const [nome, setNome] = useState('');
   const [cnpj, setCnpj] = useState('');
@@ -28,7 +32,6 @@ const Cadastro = () => {
   ];
 
   const avancarEtapa = () => {
-    console.log(nome, email, telefone, senha, tipoCadastro, cpf, cnpj, cep);
     setEtapaAtual(etapaAtual + 1);
   };
 
@@ -39,30 +42,40 @@ const Cadastro = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dadosEnviar = {
-      nomeEnviar: nome,
-      emailEnviar: email,
-      telefoneEnviar: telefone,
-      senhaEnviar: senha,
-      senhaEmpresaEnviar: senhaEmpresa,
-      cpfEnviar: cpf,
-      cnpjEnviar: cnpj,
-      cepEnviar: cep,
-      tipoCadastroEnviar: tipoCadastro,
+    const dadosEmpresa = {
+      nome: nome,
+      email: email,
+      telefone: telefone,
+      senha: senhaEmpresa,
+      cnpj: cnpj,
+      cep: cep,
     };
-    console.log("Dados do formulário enviar:", dadosEnviar);
+    const dadosUsuario = {
+        nomeUsuario: nome,
+        cpf: cpf,
+        emailUsuario: email,
+        telefoneUsuario: telefone,
+        senhaUsuario: senha,
+    }
+    console.log("Dados do formulário:", dadosUsuario);
 
     if (tipoCadastro === "cliente") {
-        dadosEnviar.cnpj = '';
-        dadosEnviar.senhaEmpresaEnviar = '';
+        api.post(`usuarios/register`, dadosUsuario).then(() => {
+            // toast.success("Usuário criado com sucesso!");
+            setTimeout(() => { navigate("/login"); }, 2000);
+        }).catch(function (error) {
+            toast.error(error.response.data.message);
+        });
 
     } else if (tipoCadastro === "empresa") {
-      dadosEnviar.cpfEnviar = '';
-      dadosEnviar.senhaEnviar = '';
+        api.post(`empresas`, dadosUsuario).then(() => {
+            // toast.success("Usuário criado com sucesso!");
+            setTimeout(() => { navigate("/login"); }, 2000);
+        }).catch(function (error) {
+            toast.error(error.response.data.message);
+        });
     }
 
-    console.log("Dados do formulário enviar:", dadosEnviar);
-    // Aqui você poderia enviar os dados para o backend
   };
 
   return (

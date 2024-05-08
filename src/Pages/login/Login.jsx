@@ -1,14 +1,51 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import style from "./Login.module.css";
 import SideBanner from "../../components/sideBanner/SideBanner";
 import InputField from "../../components/inputs/Inputs";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons"; // Importando os ícones necessários
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import api from "../../api";
+import { LogUser } from "../../services/auth";
 
 const Login = () => {
+  useEffect(() => {
+      toast.dismiss();
+  }, []);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("cliente"); // Padrão para cliente
+
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // if (userType === "cliente") {
+    // } else if (userType === "empresa") {
+    // }
+    api.post(`usuarios/login`, {
+        emailUsuario: email,
+        senhaUsuario: password,
+      })
+      .then((response) => {
+        console.log(response);
+        // LogUser(response.data.userId, response.data.token);
+        toast.success(`seja bem vindo!`);
+        setTimeout(() => {
+          // toast.success("Carregando pagina!");
+          navigate("/");
+        }, 2000);
+      })
+      .catch(function (error) {
+        toast.error(error.response.data.message);
+      });
+  };
+
   const options = [
-    { value: "1", label: "Cliente" },
-    { value: "2", label: "Empresa" },
+    { value: "cliente", label: "Cliente" },
+    { value: "empresa", label: "Empresa" },
   ];
 
   return (
@@ -18,7 +55,7 @@ const Login = () => {
           <SideBanner />
         </div>
         <div className={style["container2"]}>
-          <form className={style["form"]}>
+          <form className={style["form"]} onSubmit={handleLogin}>
             <div className={style["title"]}>
               <div className={style["center"]}>
                 <h2>Bem vindo de volta</h2>
@@ -30,19 +67,24 @@ const Login = () => {
                 type="select"
                 placeholder="Tipo de login"
                 options={options}
+                value={userType}
+                onChange={(e) => setUserType(e.target.value)}
               />
               <InputField
                 type="text"
                 placeholder="exemplo@email.com"
-                icon={faEnvelope} 
+                icon={faEnvelope}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <InputField
                 type="password"
                 placeholder="************"
-                icon={faLock} // Ícone para o campo de senha
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <div className={style["button-group"]}>
-                <button>Torne-se um membro</button>
+                <button type="submit">Entrar</button>
               </div>
               <div className={style["link-cadastro"]}>
                 <Link to="../cadastro">
