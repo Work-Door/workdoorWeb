@@ -1,0 +1,36 @@
+.cardRanking{
+    display: flex;
+    width: 96%;
+    border: solid 2px var(--laranja);
+    box-shadow: 2px 2px 4px rgb(171, 171, 171);
+    border-radius: 0.9rem;
+    padding: 2%;
+    height: 11vh;
+    cursor: pointer;
+    background-color: #FFF;
+    margin-bottom: 2vh;
+}
+.cardRanking .cardRankingLeft{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+.cardRanking .cardRankingLeft img{
+    width: 90%;
+    height: 90%;
+}
+.cardRanking .cardRankingRight{
+    width: 80%;
+}
+.cardRanking .cardRankingRight .infosServico{
+    width: 100%;
+}
+.cardRanking .cardRankingRight .infosServico h4{
+    font-weight: 500;
+}
+.cardRanking .cardRankingBot{
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+}
+

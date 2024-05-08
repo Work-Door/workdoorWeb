@@ -5,8 +5,9 @@
   padding: 0;
 }
 :root{
-  --primaryTextColor: #1F1F20;
+  --primaryTextColor: #252525;
   --ciano: #00BABF;
-  --laranja: #FF791A;
+  --laranja: #FF964D;
+  --cinza: #606D80;
 }
 
