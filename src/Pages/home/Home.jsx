@@ -15,16 +15,12 @@ import iconeMissao from "../../utils/assets/icones/iconeMissao.svg";
 import iconeVisao from "../../utils/assets/icones/iconeVisao.svg";
 import iconeValores from "../../utils/assets/icones/iconeValores.svg";
 import ComoFuncionaItem from '../../components/areaComoFuncHome/AreaComoFuncHome';
-import CardServico from '../../components/carrosselHome/CarrosselHome';
+import CardServicoCarroselHome from '../../components/carrosselHome/CarrosselHome';
 import CardAboutUs from '../../components/cardAboutUs/CardAboutUs';
 import Footer from '../../components/footer/Footer';
 
-
-
-// Define o componente funcional Home
 const Home = () => {
     return (
-        // Fragmento React para agrupar múltiplos elementos sem adicionar um nó extra ao DOM
         <main className={style["main"]}>
             <NavBar logoInicio={logo} /> {/* Inclui a NavBar no topo da página, passando o logo como propriedade */}
             <section id={style["principalTopo"]}>
@@ -68,26 +64,26 @@ const Home = () => {
                         texto="Após a finalização de um contrato, tanto o cliente quanto a empresa poderão avaliar sua experiência."
                     />
                 </div>
-                <section id={style["areaCardServicos"]}>
+                <section id={style["areaCardServicoCarroselHome"]}>
                     <div className={style["divTitulo"]}>
                         <h1 className={style["tituloServicos"]}>Serviços existentes</h1>
                     </div>
-                    <article id={style["cardServicos"]}>
-                        <CardServico
+                    <article id={style["cardServicoCarroselHome"]}>
+                        <CardServicoCarroselHome
                             imagemSrc={imgCostura}
                             altText="Imagem do serviço"
                             titulo="RR Costuras"
                             descricao="Os melhores bolos e doces da região, com uma qualidade excepcional."
                             avaliacao={4.8}
                         />
-                        <CardServico
+                        <CardServicoCarroselHome
                             imagemSrc={imgArCondicionado}
                             altText="Imagem do serviço"
                             titulo="AGK Ar condicionados"
                             descricao="Empresa que presta serviços de instalações de ar condicionados para sua casa"
                             avaliacao={5.0}
                         />
-                        <CardServico
+                        <CardServicoCarroselHome
                             imagemSrc={imgConfeiteira}
                             altText="Imagem do serviço"
                             titulo="Confeiteira Carmen"
