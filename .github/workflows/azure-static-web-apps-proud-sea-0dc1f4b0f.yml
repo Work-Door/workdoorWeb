@@ -7,8 +7,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - main
-
+      - main  
+env:
+  CI: false
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
@@ -30,7 +31,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/github/workspace/Work-Door/workdoorWeb/main/public/index.html" # App source code path
           api_location: "" # Api source code path - optional
-          output_location: "Work-Door/workdoorWeb/main/public/index.html" # Built app content directory - optional
+          output_location: "/Work-Door/workdoorWeb/main/public/index.html" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:

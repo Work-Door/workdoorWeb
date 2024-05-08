@@ -4,7 +4,7 @@ import LogoAgk from "../../utils/assets/agkLogo.svg";
 import LogoConfeitaria from "../../utils/assets/logoConfeitaria.svg";
 import LogoCostura from "../../utils/assets/logoCostura.svg";
 import NavBar from '../../components/navBar/NavBar';
-import { FormControl, InputGroup } from "react-bootstrap";
+// import { FormControl, InputGroup } from "react-bootstrap";
 import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSnowflake, faShirt, faChampagneGlasses, faComputer, faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
