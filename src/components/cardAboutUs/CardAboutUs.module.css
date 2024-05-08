@@ -1,0 +1,25 @@
+.card-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 22vw;
+    height: 60vh;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(137, 137, 137);
+    transition: all 0.3s ease;
+}
+.card-box img{
+    margin-top: -6rem;
+}
+.card-box h2{
+    color: var(--laranja);
+}
+.card-box p{
+    color: var(--text-color);
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2.4rem;
+}

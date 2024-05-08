@@ -1,0 +1,53 @@
+.servico{
+    /* background-color: lightblue; */
+    width: 80%;
+    height: 40vh;
+    margin: auto;
+    border-radius: 0.9rem;
+    border: solid 1px var(--ciano);
+    box-shadow:  2px 5px 5px 0px #8b8b8b86;
+    margin-top: 7vh;
+}
+
+.servico .servicesTop{
+    width: 40%;
+    padding: 0 5%;
+    height: 30%;
+    border-radius: 0.9rem 0.9rem 0 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5%;
+}
+
+.servico .servicesTop .infosServico{
+  width: 70%;
+}
+.servico .servicesTop h4{
+    font-weight: 500;
+}
+.servico .servicesMid{
+    width: 90%;
+    padding: 0 5%;
+    height: 50%;
+    margin-top: 3%;
+    /* height: auto; */
+    max-height: 40%;
+    line-height: 1.9rem;
+    /* background-color: black; */
+}
+.servico .servicesBot{
+    width: 90%;
+    padding: 0 5%;
+    height: 20%;
+    border-radius: 0 0 0.9rem 0.9rem;
+}
+.servico .servicesBot div{
+    display: flex;
+    justify-content: space-between;
+}
+.servico .servicesBot div div{
+    border-bottom: solid 1px #dede00;
+}
+.servico .servicesBot div .orcamentoBtn{
+    cursor: pointer;
+}

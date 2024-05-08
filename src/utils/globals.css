@@ -4,3 +4,10 @@
   margin: 0;
   padding: 0;
 }
+:root{
+  --primaryTextColor: #252525;
+  --ciano: #00BABF;
+  --laranja: #FF964D;
+  --cinza: #606D80;
+}
+

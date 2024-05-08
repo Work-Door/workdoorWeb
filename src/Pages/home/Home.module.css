@@ -8,6 +8,10 @@
 .laranja{
     color: var(--laranja);
 }
+.cinza{
+    color: var(--cinza);
+
+}
 #principalTopo{ 
     /* /* background-color: #FF791A;  */
     background-image: url(../../utils/assets/fundoTopo.svg);
@@ -15,7 +19,6 @@
     background-position: center;
     /* background-size: 100%;  */
     width: 96vw;
-    min-height: 68vh;
     height: 75vh;
     margin: auto;
     margin-top: 2.9vh;
@@ -92,11 +95,12 @@
 }
 #comoFunciona .divTitulo{
     margin: auto;
-    width: 45vw;
+    width: 55vw;
     text-align: center;
     /* background-color: #00BABF; */
     margin-bottom: 8vh;
 }
+
 #comoFunciona .divTitulo .tituloCentro{
     font-size: 2.6rem;
     color: var(--primaryTextColor);
@@ -110,20 +114,20 @@
     margin-top: 5vh;
 }
 
-#areaCardServicos .divTitulo{
+#areacardServicoCarroselHome .divTitulo{
     /* margin: auto; */
     width: auto;
     /* background-color: #00BABF; */
     margin-bottom: 8vh;
     /* background-color: blue; */
 }
-#areaCardServicos .divTitulo .tituloServicos{
+#areacardServicoCarroselHome .divTitulo .tituloServicos{
     text-align: initial;
     font-size: 2.6rem;
     color: var(--primaryTextColor);
 }
 
-#cardServicos{
+#cardServicoCarroselHome{
     /* background-color: #beb1a8; */
     width: 90vw;
     /* min-height: 60vw; */
@@ -135,7 +139,7 @@
     margin-bottom: 15vh;
 }
 
-#cardServicos .cardServico{
+#cardServicoCarroselHome .cardServico{
     width: 24vw;
     height: 70vh;
     /* background-color: #1F1F1F; */
@@ -144,15 +148,86 @@
     padding: 0 1vw;
 
 }
-#cardServicos .cardServico .cardServicoImg{
+#cardServicoCarroselHome .cardServico .cardServicoImg{
     width: 100%;
     height: 60%;
     /* background-color: #00BABF; */
     border-radius: 0.8rem 0.8rem 0 0;
 }
-#cardServicos .cardServico .cardServicoTitulo, #cardServicos .cardServico .cardServicoOrcamento{
+#cardServicoCarroselHome .cardServico .cardServicoTitulo, #cardServicoCarroselHome .cardServico .cardServicoOrcamento{
     color: var(--primaryTextColor);
 }
-#cardServicos .cardServico .cardServicoDescricao, #cardServicos .cardServico .cardServicoAvaliacao{
+#cardServicoCarroselHome .cardServico .cardServicoDescricao, #cardServicoCarroselHome .cardServico .cardServicoAvaliacao{
     margin: 0.6rem 0;
+}
+#sobreNos{
+    /* background-color: #beb1a8; */
+    width: 90vw;
+    /* min-height: 60vw; */
+    height: auto;
+    margin: auto;
+    margin-top: 5vh;
+   
+    margin-bottom: 15vh;
+}
+#sobreNos .divTitulo, #sobreNos .divTitulo .tituloCentro{
+    margin-bottom: 3vh;
+}
+#sobreNosCorpo{
+    display: flex;
+    justify-content: space-between;
+}
+#sobreNosCorpo #sobreNosEsquerda{
+    width: 45%;
+    height: 80vh;
+    /* background-color: #606D80; */
+}
+#sobreNosCorpo #sobreNosEsquerda h2{
+    margin-bottom: 5vh;
+}
+#sobreNosCorpo #sobreNosEsquerda p{
+    line-height: 2.2rem;
+}
+#sobreNosCorpo #sobreNosEsquerda div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+#sobreNosCorpo #sobreNosEsquerda div h3{
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+}
+#sobreNosCorpo #sobreNosEsquerda div h3 p{
+    font-weight: 500;
+    font-size: 1rem;
+}
+#sobreNosCorpo #sobreNosDireita{
+    width: 45%;
+    height: 80vh;
+    /* background-color: lightblue; */
+    display: flex;
+    justify-content: flex-end ;
+    margin-top: 2vh;
+}
+#sobreNosCorpo #sobreNosDireita img{
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 6px #61616189);
+    object-fit: cover;
+    border-radius: 1rem;
+}
+#proposito{
+    width: 90vw;
+    height: auto;
+    margin: 15vh auto;
+}
+#proposito .divTitulo{
+    height: fit-content;
+    line-height: 1rem;
+    margin: 20vh auto;
+}
+#proposito #propositoCards{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vh;
 }
