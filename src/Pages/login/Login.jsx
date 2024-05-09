@@ -31,7 +31,7 @@ const Login = () => {
       toast.error("Selecione o tipo de login!");
       return;
     }
-    
+
     api.post(`usuarios/login`, {
         emailUsuario: email,
         senhaUsuario: password,
@@ -39,8 +39,8 @@ const Login = () => {
       .then((response) => {
         console.log(response);
         // LogUser(response.data.userId, response.data.token);
+        toast.success(`seja bem vindo!`);
         setTimeout(() => {
-          toast.success(`seja bem vindo!`);
           // toast.success("Carregando pagina!");
           navigate("/servicos");
         }, 2000);
