@@ -1,0 +1,32 @@
+#footer{
+    background-image: url(../../utils/assets/fundoTopo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 92%;
+    height: 45vh;
+    padding: 4%;
+    color: var(--text-color);
+}
+#areaCima{
+    display: flex;
+    justify-content: space-between;
+    height: 90%;
+}
+#areaCima .divLogo p{
+    font-size: 0.8rem;
+    width: 70%;
+    line-height: 2.4rem;
+}
+#areaCima div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#areaCima div p{
+    cursor: pointer;
+}
+#areaBaixo{
+    margin-top: 7vh;
+    text-align: center;
+    border-top: solid 2px #5a5a5a;
+}

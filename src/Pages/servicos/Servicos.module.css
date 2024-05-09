@@ -1,0 +1,131 @@
+body {
+    overflow-x: hidden;
+}
+
+#principalServicos{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+#filtro {
+    /* background-color: aqua; */
+    display: flex;
+    width: 94vw;
+    padding: 1.5vh 3vw;
+    justify-content: space-between;
+}
+
+#filtro .topicosFiltro {
+    width: 70%;
+}
+
+#filtro .topicosFiltro ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+#filtro .topicosFiltro ul div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+#filtro .topicosFiltro ul div li {
+    font-size: 1rem;
+    margin-right: 15%;
+    color: var(--textColor);
+}
+
+.ciano {
+    color: var(--ciano);
+}
+
+.laranja {
+    color: var(--laranja);
+}
+
+#filtro .searchInput {
+    width: 18%;
+    padding: 0 1%;
+    border-radius: 0.8rem;
+    border: solid 1px var(--ciano);
+}
+
+#filtro .searchInput .inputBusca {
+    width: 90%;
+    border: none;
+}
+
+#filtro .searchInput .inputBusca:focus {
+    outline: none;
+}
+
+#bannerServicos {
+    width: 100%;
+    height: 30vh;
+    background-color: grey;
+}
+
+#areaServicos {
+    width: 65vw;
+    height: auto;
+    /* overflow-x: auto; */
+}
+
+#conteudoServicos {
+    display: flex;
+
+}
+
+#rankingServicos {
+    margin-top: 1vh;
+    width: 34vw;
+    margin-right: 3vw;
+}
+
+/* #rankingServicos{
+    margin-top:1vh;
+    width: 34vw;
+    position: fixed;
+    right: 2vw;
+    top: 30; 
+    z-index: 100;
+    transition: top 0.7s ease-in-out;
+  }
+  
+  #rankingServicos.ativo {
+    top: 0; 
+  }
+.rankingServicosFixo {
+    top: 30px; 
+    transition: top 0.3s ease; 
+#rankingServicos.transitioning {
+    transition: top 0.3s ease-in-out; 
+  } */
+
+
+#rankingServicos .divTitulo {
+    margin: auto;
+    text-align: center;
+    /* background-color: #00BABF; */
+    margin-bottom: 3vh;
+}
+
+#rankingServicos .divTitulo .tituloRankingServicos {
+    font-size: 1.2rem;
+    height: fit-content;
+    color: var(--primaryTextColor);
+    font-weight: 600;
+}
+
+.bordaCiano {
+    border: 2px solid var(--ciano);
+}   
