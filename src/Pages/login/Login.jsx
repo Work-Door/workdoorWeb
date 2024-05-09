@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import api from "../../api";
 import { LogUser } from "../../services/auth";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   useEffect(() => {
@@ -25,6 +27,11 @@ const Login = () => {
     // if (userType === "cliente") {
     // } else if (userType === "empresa") {
     // }
+    if(userType === ""){
+      toast.error("Selecione o tipo de login!");
+      return;
+    }
+    
     api.post(`usuarios/login`, {
         emailUsuario: email,
         senhaUsuario: password,
@@ -32,14 +39,14 @@ const Login = () => {
       .then((response) => {
         console.log(response);
         // LogUser(response.data.userId, response.data.token);
-        toast.success(`seja bem vindo!`);
         setTimeout(() => {
+          toast.success(`seja bem vindo!`);
           // toast.success("Carregando pagina!");
-          navigate("/");
+          navigate("/servicos");
         }, 2000);
       })
-      .catch(function (error) {
-        toast.error(error.response.data.message);
+      .catch(function () {
+        toast.error("Email ou senha incorretos");
       });
   };
 
@@ -56,6 +63,7 @@ const Login = () => {
         </div>
         <div className={style["container2"]}>
           <form className={style["form"]} onSubmit={handleLogin}>
+            <ToastContainer/>
             <div className={style["title"]}>
               <div className={style["center"]}>
                 <h2>Bem vindo de volta</h2>
