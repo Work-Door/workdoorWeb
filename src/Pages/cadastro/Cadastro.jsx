@@ -6,6 +6,8 @@ import InputField from "../../components/inputs/Inputs";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   faUser,
   faBuilding,
@@ -14,29 +16,44 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Cadastro = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [etapaAtual, setEtapaAtual] = useState(1);
-  const [tipoCadastro, setTipoCadastro] = useState('');
-  const [nome, setNome] = useState('');
-  const [cnpj, setCnpj] = useState('');
-  const [cep, setCep] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefone, setTelefone] = useState('');
-  const [senha, setSenha] = useState('');
-  const [senhaEmpresa, setSenhaEmpresa] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [tipoCadastro, setTipoCadastro] = useState("");
+  const [nome, setNome] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [cep, setCep] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [senha, setSenha] = useState("");
+  const [senhaEmpresa, setSenhaEmpresa] = useState("");
+  const [cpf, setCpf] = useState("");
   const options = [
     { value: "cliente", label: "Cliente" },
     { value: "empresa", label: "Empresa" },
   ];
 
   const avancarEtapa = () => {
+    if(nome === "" || email === "" || telefone === ""){
+      toast.error("Preencha todos os campos antes de avaçar a etapa!");
+      return;
+    }
+    if(tipoCadastro === ""){
+      toast.error("Selecione o tipo de cadastro antes de avançar a etapa!");
+      return;
+    }
+    if(nome.length < 3){
+      toast.error("O nome deve ter pelo menos 8 caracteres.");
+      return;
+    }
+    if(telefone.length <= 12 || telefone.length >= 16){
+      toast.error("O telefone deve ter entre 13 e 15 caracteres.");
+      return;
+    }
     setEtapaAtual(etapaAtual + 1);
   };
 
   const voltarEtapa = () => {
-    console.log(etapaAtual);
     setEtapaAtual(etapaAtual - 1);
   };
 
@@ -51,31 +68,47 @@ const navigate = useNavigate();
       cep: cep,
     };
     const dadosUsuario = {
-        nomeUsuario: nome,
-        cpf: cpf,
-        emailUsuario: email,
-        telefoneUsuario: telefone,
-        senhaUsuario: senha,
-    }
-    console.log("Dados do formulário:", dadosUsuario);
+      nomeUsuario: nome,
+      cpf: cpf,
+      emailUsuario: email,
+      telefoneUsuario: telefone,
+      senhaUsuario: senha,
+    };
 
     if (tipoCadastro === "cliente") {
-        api.post(`usuarios/register`, dadosUsuario).then(() => {
-            // toast.success("Usuário criado com sucesso!");
-            setTimeout(() => { navigate("/login"); }, 2000);
-        }).catch(function (error) {
-            toast.error(error.response.data.message);
-        });
+      if (senha.length < 8) {
+        toast.error("A senha deve ter pelo menos 8 caracteres.");
+        return;
+      }
+      if (cpf.length !== 11) {
+        toast.error("O CPF deve ter 11 caracteres.");
+        return;
+      }
 
+      api
+        .post(`usuarios/register`, dadosUsuario)
+        .then(() => {
+          toast.success("Usuário criado com sucesso!");
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+        })
+        .catch(function () {
+          toast.error("Falha ao cadastrar usuário");
+        });
     } else if (tipoCadastro === "empresa") {
-        api.post(`empresas`, dadosUsuario).then(() => {
-            // toast.success("Usuário criado com sucesso!");
-            setTimeout(() => { navigate("/login"); }, 2000);
-        }).catch(function (error) {
-            toast.error(error.response.data.message);
+      api
+        .post(`empresas`, dadosEmpresa)
+        .then(() => {
+          toast.success("Empresa criada com sucesso!");
+          setTimeout(() => {
+            navigate("/login");
+          }, 2000);
+        })
+        .catch(function (error) {
+          toast.error(error.response.data.message);
         });
     }
-
   };
 
   return (
@@ -86,6 +119,7 @@ const navigate = useNavigate();
         </div>
         <div className={style["container2"]}>
           <form className={style["form"]} onSubmit={handleSubmit}>
+            <ToastContainer/>
             <div className={style["title"]}>
               <div className={style["center"]}>
                 <h2>Abra sua conta gratuitamente</h2>
@@ -100,7 +134,7 @@ const navigate = useNavigate();
                     placeholder="Tipo de cadastro"
                     name="tipoCadastro"
                     options={options}
-                    value ={tipoCadastro}
+                    value={tipoCadastro}
                     onChange={(e) => setTipoCadastro(e.target.value)}
                   />
                   <InputField

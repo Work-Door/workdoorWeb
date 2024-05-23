@@ -1,5 +1,11 @@
 .main{
+    width: 100%;
+    height: auto;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .ciano{
@@ -12,6 +18,16 @@
     color: var(--cinza);
 
 }
+/* main{
+    /* width: 100%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+} */
 #principalTopo{ 
     /* /* background-color: #FF791A;  */
     background-image: url(../../utils/assets/fundoTopo.svg);

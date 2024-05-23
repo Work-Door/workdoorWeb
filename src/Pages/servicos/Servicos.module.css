@@ -2,6 +2,17 @@ body {
     overflow-x: hidden;
 }
 
+#principalServicos{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
 #filtro {
     /* background-color: aqua; */
     display: flex;
@@ -117,4 +128,4 @@ body {
 
 .bordaCiano {
     border: 2px solid var(--ciano);
-}
+}   

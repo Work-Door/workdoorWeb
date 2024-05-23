@@ -5,47 +5,22 @@ import LogoConfeitaria from "../../utils/assets/logoConfeitaria.svg";
 import LogoCostura from "../../utils/assets/logoCostura.svg";
 import NavBar from '../../components/navBar/NavBar';
 import { FormControl, InputGroup } from "react-bootstrap";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSnowflake, faShirt, faChampagneGlasses, faComputer, faHouse, faSearch } from "@fortawesome/free-solid-svg-icons";
 import CardServico from '../../components/cardServico/CardServico';
 import CardRanking from '../../components/ranking/Ranking';
+import CarrousselServices from '../../components/carrosselService/CarrosselServices';
 
 const Servicos = ({ onFilterChange }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleSearchChange = (e) => {
         setSearchTerm(e.target.value);
-        // Passar o termo de busca para o componente pai, se necessário
         if (onFilterChange) {
             onFilterChange(e.target.value);
         }
     };
-    // const [ativo, setAtivo] = useState(false);
-    // const rankingRef = useRef(null);
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const scrollTop = window.pageYOffset;
-    //         const divTop = rankingRef.current.getBoundingClientRect().top;
-
-    //         if (scrollTop > divTop) {
-    //             setAtivo(true);
-    //         } else {
-    //             setAtivo(false);
-    //         }
-
-    //         // Anime a mudança de posição com base no estado 'ativo':
-    //         if (ativo) {
-    //             rankingRef.current.style.top = '0px'; // Animar para o topo
-    //         } else {
-    //             rankingRef.current.style.top = '50.2vh'; // Animar de volta à posição inicial
-    //         }
-    //     };
-
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, [rankingRef, ativo]);
 
     useEffect(() => {
         window.onload = function () {
@@ -98,6 +73,7 @@ const Servicos = ({ onFilterChange }) => {
                 </InputGroup>
             </section>
             <aside id={style["bannerServicos"]}>
+                <CarrousselServices />
 
             </aside>
             <section id={style["conteudoServicos"]}>
@@ -118,48 +94,6 @@ const Servicos = ({ onFilterChange }) => {
                         titulo="RR Costuras"
                         categoria="Moda"
                         descricao="Duas costureiras com os melhores seviços de costura da zona norte de SP, fazemos ajustes e reformas em geral."
-                        nota={4.7}
-                        descricaoLimite={120}
-                        styles={style}
-                    />
-
-                    <CardServico
-                        imagemSrc={LogoConfeitaria}
-                        altText="logo da confeitaria"
-                        titulo="Confeiteira Carmen"
-                        categoria="Eventos / Alimentação"
-                        descricao="Os melhores bolos da região, fazemos encomendas para festas e eventos em geral."
-                        nota={4.7}
-                        descricaoLimite={120}
-                        styles={style}
-                    />
-                    <CardServico
-                        imagemSrc={LogoAgk}
-                        altText="logo da empresa agk ar condicionados"
-                        titulo="AGK Ar condicionados"
-                        categoria="Refrigeração"
-                        descricao="A AGK atua no mercado desde 2010, visando sempre soluções que compatibilizam beleza, economia, tecnologia responsável."
-                        nota={4.8}
-                        descricaoLimite={120}
-                        styles={style}
-                    />
-                    <CardServico
-                        imagemSrc={LogoCostura}
-                        altText="logo da costureira"
-                        titulo="RR Costuras"
-                        categoria="Moda"
-                        descricao="Duas costureiras com os melhores seviços de costura da zona norte de SP, fazemos ajustes e reformas em geral."
-                        nota={4.7}
-                        descricaoLimite={120}
-                        styles={style}
-                    />
-
-                    <CardServico
-                        imagemSrc={LogoConfeitaria}
-                        altText="logo da confeitaria"
-                        titulo="Confeiteira Carmen"
-                        categoria="Eventos / Alimentação"
-                        descricao="Os melhores bolos da região, fazemos encomendas para festas e eventos em geral."
                         nota={4.7}
                         descricaoLimite={120}
                         styles={style}
@@ -209,7 +143,6 @@ const Servicos = ({ onFilterChange }) => {
                 </section>
             </section>
         </main >
-
     );
 };
 
