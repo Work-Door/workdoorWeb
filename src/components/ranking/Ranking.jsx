@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./Ranking.module.css";
 
-const CardRanking = ({ imagemSrc, altText, titulo, categoria, nota, styles, className }) => {
+const CardRanking = ({ imagemSrc, altText, titulo, categoria, nota }) => {
     return (
-        <div className={`${style["cardRanking"]} ${className}`}>
+        <div className={`${style["cardRanking"]}`}>
             <div className={style["cardRankingLeft"]}>
                 <img src={imagemSrc} alt={altText} />
             </div>

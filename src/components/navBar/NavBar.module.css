@@ -9,11 +9,13 @@
   height: 16.5vh;
   box-shadow: 0px 4px 10px 0px #4e4e4e47;
 }
+
 .navBar .logo {
   width: 7vw;
   height: 11vh;
   /* background-color: rgb(137, 82, 82); */
 }
+
 .navBar .logo img {
   width: 100%;
   height: 100%;
@@ -29,6 +31,7 @@
   display: flex;
   align-items: center;
 }
+
 .navBar #menuLista ul {
   display: flex;
   justify-content: space-between;
@@ -37,9 +40,22 @@
   width: 80%;
   margin: auto;
 }
+
 .navBar #menuLista ul li {
   cursor: pointer;
+  
+  transition: background-size 0.3s ease; 
+  background-image: linear-gradient(to right, var(--ciano), var(--laranja));
+  background-size: 0% 2px; 
+  background-position: left bottom; 
+  background-repeat: no-repeat;
 }
+
+.navBar #menuLista ul li:hover, .navBar #btnsTopo #btnLogin:hover, .navBar #btnsTopo #btnCadastro:hover {
+  background-size: 100% 2px; /* Largura total da borda ao passar o mouse */
+
+}
+
 .navBar #btnsTopo {
   /* background-color: aqua; */
   width: 18%;
@@ -47,43 +63,66 @@
   display: flex;
   justify-content: space-between;
   margin-right: 5vw;
+  
+
 }
+
 .navBar #btnsTopo #btnLogin {
-  width: 40%;
-  background-color: #fff;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 2px 3px 0px 0px #8b8b8b;
+  width: 50%;
   cursor: pointer;
   font-weight: 500;
+  background-color: transparent;
+  border: none;
+
+  transition: background-size 0.3s ease; 
+  background-image: linear-gradient(to right, var(--ciano), var(--laranja));
+  background-size: 0% 2px; 
+  background-position: left bottom;
+  background-repeat: no-repeat; 
+}
+.linhaMeio{
+  width: 0.1rem;
+  height: auto;
+  background-color: #252525;
 }
 .navBar #btnsTopo #btnCadastro {
   width: 50%;
-  background-color: #8b8b8b;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 2px 3px 0px 0px #000;
   cursor: pointer;
-  color: #fff;
   font-weight: 500;
+  background-color: transparent;
+  border: none;
+
+  transition: background-size 0.3s ease; 
+  background-image: linear-gradient(to right, var(--ciano), var(--laranja));
+  background-size: 0% 2px; 
+  background-position: left bottom;
+  background-repeat: no-repeat; 
 }
-.navBarServicos{
+
+.btnLink{
+  text-decoration: none;
+  color: var(--primaryTextColor);
+  font-size: 1rem;
+}
+
+.navBarServicos {
   height: 13vh;
   width: 94vw;
   padding: 0 3vw 0 3vw;
 }
-.navBarServicos .logo{
+
+.navBarServicos .logo {
   width: 5vw;
   height: 9vh;
 }
-.navBarServicos .imgPerfil{
-  /* background-color: blue; */
+
+.navBarServicos .imgPerfil {
   width: 4vw;
   height: 8vh;
 }
-.navBarServicos .imgPerfil img{
+
+.navBarServicos .imgPerfil img {
   width: 100%;
   height: 100%;
   cursor: pointer;
 }
-

@@ -22,7 +22,7 @@
 .cardServicoCarroselHome .cardServicoCarroselHomeTitulo, .cardServicoCarroselHome .cardServicoCarroselHomeOrcamento{
     color: var(--primaryTextColor);
     margin: 0.6rem 1vw;
-
+    cursor: pointer;
 }
 .cardServicoCarroselHome .cardServicoCarroselHomeDescricao{
     min-height: 55px;

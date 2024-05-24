@@ -19,6 +19,9 @@ import CardServicoCarroselHome from '../../components/carrosselHome/CarrosselHom
 import CardAboutUs from '../../components/cardAboutUs/CardAboutUs';
 import Footer from '../../components/footer/Footer';
 
+import { Link } from "react-router-dom";
+
+
 const Home = () => {
     return (
         <main className={style["main"]}>
@@ -29,7 +32,7 @@ const Home = () => {
                     <h1>Abrindo<span className={style["ciano"]}> portas </span>para o seu negócio</h1>
                     <p>Faça seu cadastro para conhecer um novo mundo de oportunidades</p>
                     <div>
-                        <button id={style["btnPrincipal"]} tabindex="8">Comece Já</button>
+                    <Link to={"/login"} somoth className={style["btnLink"]}> <button id={style["btnPrincipal"]} tabindex="8"> Comece Já </button></Link>
                     </div>
                 </article>
                 <article id={style["direitaTopo"]}>

@@ -82,8 +82,19 @@
     font-weight: 600;
     font-size: 18px;
     box-shadow: #606D80 4px 4px 0px;
+    cursor: pointer;
 }
+#principalTopo #esquerdaTopo div button:hover{
+    background-color: #383838;
+    transition: 0.5s;
+    box-shadow: #47edff 4px 4px 0px;
 
+}
+.btnLink{
+    text-decoration: none;
+    color: #f1f1f1;
+  
+  }
 #principalTopo #direitaTopo{
     width: 46%;
     height: 100%;

@@ -2,7 +2,9 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import style from "../navBar/NavBar.module.css";
 import Logo from "../../utils/assets/logo.svg";
-import ImagemPerfil from "../../utils/assets/gustavoPerfil.svg";
+import ImagemPerfil from "../../utils/assets/iconUser.png";
+
+import { Link } from "react-router-dom";
 
 const NavBar = ({ logoInicio }) => {
     const location = useLocation();
@@ -11,7 +13,9 @@ const NavBar = ({ logoInicio }) => {
     return (
         <nav className={`${style["navBar"]} ${isServicosPage ? style["navBarServicos"] : ""}`}>
             <div className={style["logo"]}>
-                <img src={Logo} alt="logo WorkDoor" />
+            <Link to="/">
+            <img src={Logo} alt="logo WorkDoor" />
+                </Link>
             </div>
             {isServicosPage ? (
                 <div className={style["imgPerfil"]}>
@@ -28,8 +32,9 @@ const NavBar = ({ logoInicio }) => {
                         </ul>
                     </div>
                     <div id={style["btnsTopo"]}>
-                        <button id={style["btnLogin"]}>Login</button>
-                        <button id={style["btnCadastro"]}>Cadastro</button>
+                        <button id={style["btnLogin"]}><Link to={"/login"} somoth className={style["btnLink"]}> Login </Link></button>
+                        <span className={style["linhaMeio"]}></span>
+                        <button id={style["btnCadastro"]}><Link to={"/cadastro"} somoth className={style["btnLink"]}> Cadastro </Link></button>
                     </div>
                 </>
             )}
