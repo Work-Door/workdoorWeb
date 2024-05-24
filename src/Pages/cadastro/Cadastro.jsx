@@ -227,7 +227,7 @@ const Cadastro = () => {
               </div>
               <div className={style["link-login"]}>
                 <Link to="../login">
-                  Já está cadastrado? <span>Entre agora</span>
+                  Já está cadastrado?‎ <span> ‎Entre agora</span>
                 </Link>
               </div>
             </div>

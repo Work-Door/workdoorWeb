@@ -3,6 +3,8 @@ import Logo from "../../utils/assets/logo.svg";
 import LogoAgk from "../../utils/assets/agkLogo.svg";
 import LogoConfeitaria from "../../utils/assets/logoConfeitaria.svg";
 import LogoCostura from "../../utils/assets/logoCostura.svg";
+import LogoFotografo from "../../utils/assets/logoFotografo.svg";
+import LogoProg from "../../utils/assets/logoProg.svg";
 import NavBar from '../../components/navBar/NavBar';
 import { FormControl, InputGroup } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
@@ -84,7 +86,7 @@ const Servicos = ({ onFilterChange }) => {
                         titulo="AGK Ar condicionados"
                         categoria="Refrigeração"
                         descricao="A AGK atua no mercado desde 2010, visando sempre soluções que compatibilizam beleza, economia, tecnologia responsável."
-                        nota={4.8}
+                        nota={5.0}
                         descricaoLimite={120}
                         styles={style}
                     />
@@ -109,36 +111,36 @@ const Servicos = ({ onFilterChange }) => {
                         altText="logo da empresa agk ar condicionados"
                         titulo="AGK Ar condicionados"
                         categoria="Refrigeração"
+                        nota={5.0}
+                    />
+                    <CardRanking
+                        imagemSrc={LogoCostura}
+                        altText="logo rr costuras"
+                        titulo="RR Costuras"
+                        categoria="Moda"
                         nota={4.8}
                     />
                     <CardRanking
-                        imagemSrc={LogoAgk}
-                        altText="logo da empresa agk ar condicionados"
-                        titulo="AGK Ar condicionados"
-                        categoria="Refrigeração"
-                        nota={4.8}
+                        imagemSrc={LogoConfeitaria}
+                        altText="logo da confeitaria"
+                        titulo="Confeiteira Carmen"
+                        categoria="Eventos / Confeitaria"
+                        nota={4.6}
+
                     />
                     <CardRanking
-                        imagemSrc={LogoAgk}
-                        altText="logo da empresa agk ar condicionados"
-                        titulo="AGK Ar condicionados"
-                        categoria="Refrigeração"
-                        nota={4.8}
+                        imagemSrc={LogoFotografo}
+                        altText="logo do fotógrafo"
+                        titulo="Felipe Fotógrafo"
+                        categoria="Eventos"
+                        nota={4.7}
                     />
                     <CardRanking
-                        imagemSrc={LogoAgk}
-                        altText="logo da empresa agk ar condicionados"
-                        titulo="AGK Ar condicionados"
-                        categoria="Refrigeração"
-                        nota={4.8}
-                    />
-                    <CardRanking
-                        imagemSrc={LogoAgk}
-                        altText="logo da empresa agk ar condicionados"
-                        titulo="AGK Ar condicionados"
-                        categoria="Refrigeração"
-                        nota={4.8}
-                        className={style["bordaCiano"]}
+                        imagemSrc={LogoProg}
+                        altText="Logo da Paula Programadora"
+                        titulo="Paula Programadora"
+                        categoria="Tecnologia"
+                        nota={4.7}
                     />
                 </section>
             </section>

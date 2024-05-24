@@ -1,7 +1,7 @@
 .cardRanking{
     display: flex;
     width: 96%;
-    border: solid 2px var(--laranja);
+    border: solid 1px var(--laranja);
     box-shadow: 2px 2px 4px rgb(171, 171, 171);
     border-radius: 0.9rem;
     padding: 2%;
@@ -33,4 +33,3 @@
     justify-content: flex-end;
     width: 95%;
 }
-
