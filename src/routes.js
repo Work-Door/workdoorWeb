@@ -6,6 +6,7 @@ import Home from "./Pages/home/Home";
 import NotFound from "./Pages/notFound/NotFound";
 import Servicos from "./Pages/servicos/Servicos";
 import ConfigClient from "./Pages/cliente/configClient/ConfigClient";
+import PerfilEmpresa from "./Pages/empresa/perfil/Perfil";
 
 function Rotas() {
     return (
@@ -17,6 +18,7 @@ function Rotas() {
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/servicos" element={<Servicos />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/perfil/empresa" element={<PerfilEmpresa />} />
                     <Route path="/cliente/configuracoes" element={<ConfigClient />} />
                 </Routes>
             </BrowserRouter>

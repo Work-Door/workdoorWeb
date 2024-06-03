@@ -106,23 +106,47 @@
 }
 
 .navBarServicos {
-  height: 13vh;
+  height: 11vh;
   width: 94vw;
   padding: 0 3vw 0 3vw;
 }
 
 .navBarServicos .logo {
   width: 5vw;
-  height: 9vh;
+  height: 8vh;
 }
 
 .navBarServicos .imgPerfil {
-  width: 4vw;
-  height: 8vh;
+  width: 3vw;
+  height: 7vh;
 }
 
 .navBarServicos .imgPerfil img {
   width: 100%;
   height: 100%;
   cursor: pointer;
+}
+
+.navBarPerfil{
+  height: 11vh;
+  display: flex;
+}
+.navBarPerfil .logo {
+  width: 5vw;
+  height: 8vh;
+  /* background-color: rgb(137, 82, 82); */
+}
+.navBarPerfil .imgPerfil {
+  width: 3vw;
+  height: 7vh;
+}
+
+.navBarPerfil .imgPerfil img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.navBarPerfil #menuLista{
+  width: 20vw;
 }
