@@ -1,0 +1,92 @@
+#container{
+    width: 92%;
+    margin: auto;
+    height: auto;
+    /* display: flex; */
+    color: var(--primaryTextColor);
+    border-bottom: solid 1px #c7c7c7;
+}
+#container #areaEmpresaTopo{
+    width: 100%;
+    height: 11rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+#container #areaEmpresaTopo #divLogo{
+    width: 12rem;
+    height: 12rem;
+    margin-top: -4rem;
+}
+#container #areaEmpresaTopo #divLogo img{
+    width: 100%;
+    height: 100%;
+}
+#container #areaEmpresaTopo #areaDesc{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    margin-left: 7%;
+}
+#container #areaEmpresaTopo #areaDesc #nomeEmpresa{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(39, 39, 39);
+}
+#container #areaEmpresaTopo #areaDesc #contratos{
+    width: 40%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px  #7ACFEC;
+    box-shadow: 2px 1px 5px grey;
+}
+#container #areaEmpresaTopo #endereco{
+    width: 30%;
+    display: flex;
+}
+#container #areaEmpresaTopo #endereco p{
+    margin-left: 2%;
+}
+#container #areaBaixo{
+    height:90vh;
+    display: flex;
+    margin-top: 7vh;
+    border-bottom: solid 1px #c7c7c7;
+    margin-bottom: 5vh;
+}
+#container #areaBaixo #descricao{
+    width: 65%;
+}
+#container #areaBaixo #descricao #btnChat{
+    width: 40%;
+    height: 20%;
+    box-shadow: 4px 4px 1px black;
+    background-color: rgb(107, 107, 107);
+    cursor: pointer;
+}
+#container #areaBaixo #descricao #btnChat button{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+}
+#container #areaBaixo #descricao #descricaoEmpresa{
+    margin-top: 10vh;
+    width: 100%;
+    height: max-content;
+}
+#container #areaBaixo #descricao #descricaoEmpresa p{
+    line-height: 2.6rem;
+}
+#container #areaBaixo #mapa{
+    width: 35%;
+    height: 70vh;
+}
