@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import style from './InfoPerfilEmpresa.module.css';
 import IconeEndereco from "../../utils/assets/icones/navigationIcon.png";
+import Mapa from '../mapa/Mapa'; 
 
-const InfoPerfilEmpresa = ({
-    logo,
-    nomeEmpresa,
-    breveDesc,
-    contratos,
-    endereco,
-    descricao,
-    mapa
-}) => {
+const InfoPerfilEmpresa = ({ logo, nomeEmpresa, breveDesc, contratos, endereco, descricao }) => {
+    const [location, setLocation] = useState(null);
+
+    useEffect(() => {
+        const fetchLocation = async () => {
+            try {
+                const encodedAddress = encodeURIComponent(endereco);
+                const apiKey = 'AIzaSyBnao4_rr2zTrVFpnpDzwL_EvlguKM6wts';
+                const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}`);
+                
+                if (response.data.results && response.data.results.length > 0) {
+                    console.log("Geocode response:", response.data.results);
+                    setLocation(response.data.results[0].geometry.location);
+                } else {
+                    console.error("Sem resultados para o endereço");
+                }
+            } catch (error) {
+                console.error("Error fetching location:", error);
+            }
+        };
+
+        fetchLocation();
+    }, [endereco]);
+
     return (
         <div id={style["container"]}>
             <section id={style["areaEmpresaTopo"]}>
@@ -41,7 +58,7 @@ const InfoPerfilEmpresa = ({
                     </div>
                 </div>
                 <div id={style["mapa"]}>
-                    {mapa}
+                    {location ? <Mapa endereco={location} /> : <p>Carregando localização...</p>}
                 </div>
             </section>
         </div>
