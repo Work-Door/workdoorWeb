@@ -14,8 +14,8 @@ const InfoPerfilEmpresa = ({ logo, nomeEmpresa, breveDesc, contratos, endereco, 
                 const apiKey = 'AIzaSyBnao4_rr2zTrVFpnpDzwL_EvlguKM6wts';
                 const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${apiKey}`);
                 
-                if (response.data.results && response.data.results.length > 0) {
-                    console.log("Geocode response:", response.data.results);
+                if (response.data.results[0]) {
+                    console.log("Geocode response:", response.data.results[0]);
                     setLocation(response.data.results[0].geometry.location);
                 } else {
                     console.error("Sem resultados para o endereço");
@@ -58,7 +58,7 @@ const InfoPerfilEmpresa = ({ logo, nomeEmpresa, breveDesc, contratos, endereco, 
                     </div>
                 </div>
                 <div id={style["mapa"]}>
-                    {location ? <Mapa endereco={location} /> : <p>Carregando localização...</p>}
+                    {location ? <Mapa endereco={location} /> : <p>Loading location...</p>}
                 </div>
             </section>
         </div>
