@@ -1,12 +1,10 @@
-import api from "../../api";
 import React, { useState } from "react";
+import api from "../../api";
 import style from "./Cadastro.module.css";
 import SideBanner from "../../components/sideBanner/SideBanner";
 import InputField from "../../components/inputs/Inputs";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate, Link } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import {
   faUser,
@@ -23,30 +21,35 @@ const Cadastro = () => {
   const [nome, setNome] = useState("");
   const [cnpj, setCnpj] = useState("");
   const [cep, setCep] = useState("");
+  const [logradouro, setLogradouro] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [cidade, setCidade] = useState("");
+  const [estado, setEstado] = useState("");
   const [email, setEmail] = useState("");
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
   const [senhaEmpresa, setSenhaEmpresa] = useState("");
   const [cpf, setCpf] = useState("");
+
   const options = [
     { value: "cliente", label: "Cliente" },
     { value: "empresa", label: "Empresa" },
   ];
 
   const avancarEtapa = () => {
-    if(nome === "" || email === "" || telefone === ""){
-      toast.error("Preencha todos os campos antes de avaçar a etapa!");
+    if (nome === "" || email === "" || telefone === "") {
+      toast.error("Preencha todos os campos antes de avançar a etapa!");
       return;
     }
-    if(tipoCadastro === ""){
+    if (tipoCadastro === "") {
       toast.error("Selecione o tipo de cadastro antes de avançar a etapa!");
       return;
     }
-    if(nome.length < 3){
+    if (nome.length < 3) {
       toast.error("O nome deve ter pelo menos 8 caracteres.");
       return;
     }
-    if(telefone.length <= 12 || telefone.length >= 16){
+    if (telefone.length <= 12 || telefone.length >= 16) {
       toast.error("O telefone deve ter entre 13 e 15 caracteres.");
       return;
     }
@@ -55,6 +58,25 @@ const Cadastro = () => {
 
   const voltarEtapa = () => {
     setEtapaAtual(etapaAtual - 1);
+  };
+
+  const handleCepChange = (e) => {
+    const newCep = e.target.value;
+    setCep(newCep);
+
+    if (newCep.length === 8) {
+      api.get(`https://viacep.com.br/ws/${newCep}/json/`)
+        .then(response => {
+          const { logradouro, bairro, localidade, uf } = response.data;
+          setLogradouro(logradouro);
+          setBairro(bairro);
+          setCidade(localidade);
+          setEstado(uf);
+        })
+        .catch(() => {
+          toast.error("CEP não encontrado.");
+        });
+    }
   };
 
   const handleSubmit = (e) => {
@@ -66,6 +88,10 @@ const Cadastro = () => {
       senha: senhaEmpresa,
       cnpj: cnpj,
       cep: cep,
+      logradouro: logradouro,
+      bairro: bairro,
+      cidade: cidade,
+      estado: estado,
     };
     const dadosUsuario = {
       nomeUsuario: nome,
@@ -119,7 +145,7 @@ const Cadastro = () => {
         </div>
         <div className={style["container2"]}>
           <form className={style["form"]} onSubmit={handleSubmit}>
-            <ToastContainer/>
+            <ToastContainer />
             <div className={style["title"]}>
               <div className={style["center"]}>
                 <h2>Abra sua conta gratuitamente</h2>
@@ -173,6 +199,7 @@ const Cadastro = () => {
                       value={cpf}
                       onChange={(e) => setCpf(e.target.value)}
                       icon={faUser}
+                      mask={"999.999.999-99"}
                     />
                     <InputField
                       type="password"
@@ -193,15 +220,49 @@ const Cadastro = () => {
                       value={cnpj}
                       onChange={(e) => setCnpj(e.target.value)}
                       icon={faBuilding}
+                      mask={"99.999.999/9999-99"}
                     />
                     <InputField
                       type="text"
                       placeholder="CEP"
                       name="cepForm"
                       value={cep}
-                      onChange={(e) => setCep(e.target.value)}
+                      onChange={handleCepChange}
                       icon={faBuilding}
+                      mask={"99999-999"}
                     />
+                    {logradouro && (
+                      <>
+                        <InputField
+                          type="text"
+                          placeholder="Logradouro"
+                          name="logradouroForm"
+                          value={logradouro}
+                          readOnly
+                        />
+                        <InputField
+                          type="text"
+                          placeholder="Bairro"
+                          name="bairroForm"
+                          value={bairro}
+                          readOnly
+                        />
+                        <InputField
+                          type="text"
+                          placeholder="Cidade"
+                          name="cidadeForm"
+                          value={cidade}
+                          readOnly
+                        />
+                        <InputField
+                          type="text"
+                          placeholder="Estado"
+                          name="estadoForm"
+                          value={estado}
+                          readOnly
+                        />
+                      </>
+                    )}
                     <InputField
                       type="password"
                       placeholder="Senha"

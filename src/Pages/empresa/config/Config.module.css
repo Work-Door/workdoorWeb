@@ -1,0 +1,131 @@
+.main {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    /* background: #f4f4f4; */
+    background-color: red;
+    padding: 20px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav li {
+    margin-bottom: 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav .active {
+    font-weight: bold;
+}
+
+.logout {
+    margin-top: 20px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    width: 70%;
+    height: 80%;
+    text-align: center;
+}
+
+.title h1, .title h2{
+    display: flex;
+    justify-content: start;
+    text-align: center;
+}
+
+.header .logo img {
+    margin-right: 20px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 20px 0px 20px;
+    width: 48%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.division-inputs{
+    width: 100%;
+    display: flex;
+    /* flw-direction: row; */
+    align-items: center;
+    justify-content: center;
+}
+
+.division-inputs select{
+    height: 100%;
+    width: 95%;
+    float: right;
+    margin: 0;
+}
+
+.division-inputs input{
+    height: 100%;
+    width: 90%;
+    margin: 0px 0px 0px 5px;
+}
+
+.button-group{
+    width: 100%;
+    margin-top: 10px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.saveButton {
+    /* margin-top: 20px; */
+    padding: 10px 20px;
+    background: var(--ciano);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end; 
+}
+
+.saveButton:hover {
+    background: #2d6e81;
+}

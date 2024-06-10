@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./Inputs.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import InputMask from 'react-input-mask';
 
-const InputField = ({ type, placeholder, value, onChange, options, icon }) => {
+const InputField = ({ type, placeholder, value, onChange, options, icon, mask }) => {
   return (
     <div className={`${style["inputs"]} ${style["custom-input"]}`}>
       {type === "select" ? (
@@ -16,12 +17,22 @@ const InputField = ({ type, placeholder, value, onChange, options, icon }) => {
         </select>
       ) : (
         <>
-          <input
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-          />
+          {mask ? (
+            <InputMask
+              mask={mask}
+              type={type}
+              placeholder={placeholder}
+              value={value}
+              onChange={onChange}
+            />
+          ) : (
+            <input
+              type={type}
+              placeholder={placeholder}
+              value={value}
+              onChange={onChange}
+            />
+          )}
           {icon && <FontAwesomeIcon icon={icon} className={style.icon} />}
         </>
       )}
