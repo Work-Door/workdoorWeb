@@ -60,7 +60,6 @@ body {
   border-radius: 3% 3% 0 0;
   justify-content: start;
   align-items: center;
-  /* background-color: red; */
 }
 
 .nome-empresa h2 {
@@ -70,12 +69,10 @@ body {
 
 .chat {
     width: 100%;
-    height: 78%;
+    min-height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: red; */
-    /* background-color: red; */
 }
 
 .mensagens {
@@ -83,7 +80,7 @@ body {
     height: 100%;
     margin: 5% 0;
     padding: 0 5%;
-    /* background-color: red; */
+    overflow-y: auto; /* Adicionado para rolagem */
 }
 
 .input-chat {
@@ -101,12 +98,22 @@ body {
 
 .message-text {
     margin-top: 3%;
+    width: 80%;
+    word-wrap: break-word; /* Adicionado para quebra de linha */
+    white-space: pre-wrap; /* Adicionado para preservar espaços em branco */
 }
 
-.contatos{
+.message-container {
+    width: 100%;
+}
+
+.message-mine .message-container {
+  text-align: right; /* Alinhar as mensagens do usuário à direita */
+}
+
+.contatos {
     width: 100%;
     height: 90%;
-    /* background-color: red; */
     display: flex;
     align-items: center;
 }

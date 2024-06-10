@@ -9,7 +9,6 @@ export default function Chat() {
   const bottomRef = useRef();
   const messageRef = useRef();
   const [messageList, setMessageList] = useState([]);
-//   const [username, setUsername] = useState('');
 
   useEffect(() => {
     if (!socket) return;
@@ -33,12 +32,6 @@ export default function Chat() {
     clearInput();
     focusInput();
   };
-
-//   const handleSetUsername = () => {
-//     if (!username.trim()) return;
-//     socket.emit('set_username', username);
-//     console.log(username);
-//   };
 
   const clearInput = () => {
     messageRef.current.value = '';
@@ -90,15 +83,6 @@ export default function Chat() {
               <SendIcon sx={{ m: 1, cursor: 'pointer' }} onClick={() => handleSubmit()} color="primary" />
             </div>
           </div>
-          {/* <div className={style["username-container"]}>
-            <Input
-              placeholder='Username'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onBlur={handleSetUsername}
-              fullWidth
-            />
-          </div> */}
         </div>
       </main>
     </div>
