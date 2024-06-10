@@ -21,6 +21,7 @@ const Comentarios = () => {
         chunkedComments.push(comments.slice(i, i + 2));
     }
 
+    
     if (comments.length === 0) {
         return <div>Loading...</div>; // Show a loading state
     }

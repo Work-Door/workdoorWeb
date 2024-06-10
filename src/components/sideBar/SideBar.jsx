@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './SideBar.module.css';
 import { Avatar } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SettingsIcon from '@mui/icons-material/Settings';
 import SupportIcon from '@mui/icons-material/Support';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import Logo from "../../utils/assets/logo.svg";
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(true);
-
+  const location = useLocation();
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -16,32 +18,27 @@ function Sidebar() {
   return (
     <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
       <div className={styles.logo} onClick={toggleSidebar}>
-        <img src="work-door-logo.png" alt="Work Door" />
+        <img src={Logo} alt="Work Door" />
       </div>
       <nav>
         <ul>
-          <li className={styles.active}>
+          <li id={styles["dashIcon"]} className={location.pathname === '/dash' ? styles.active : ''}>
             <DashboardIcon />
             {isOpen && <a href="#">Dashboard</a>}
           </li>
-          <li>
+          <li className={location.pathname === '/empresa/configuracoes' ? styles.active : ''}>
             <SettingsIcon />
             {isOpen && <a href="#">Configurações</a>}
           </li>
-          <li>
-            <SupportIcon />
-            {isOpen && <a href="#">Suporte</a>}
-          </li>
         </ul>
       </nav>
-      <div className={styles.logout}>
+      <div className={isOpen ? styles.logout : styles.logoutSmall}>
         <button>
-          <ExitToAppIcon />
+          <ExitToAppIcon className={styles["iconeLogout"]}/>
           {isOpen && <span>Sair</span>}
         </button>
       </div>
     </aside>
   );
 }
-
 export default Sidebar;
