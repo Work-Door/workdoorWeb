@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ImgMarcas from "../../utils/assets/imgMarcas.svg";
-import logo from "../../utils/assets/agkLogo.svg";
+import Logo from "../../utils/assets/logo.svg";
 import style from "./Publicacoes.module.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPaperclip, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +20,7 @@ function Publicacoes() {
                 <section id={style["areaPublicar"]}>
                     <div className={style["publication-input"]}>
                         <div className={style["logoPost"]}>
-                            <img src={logo} alt="" />
+                            <img src={Logo} alt="" />
                         </div>
 
                         <div className={style["textarea-container"]}>

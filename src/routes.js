@@ -23,7 +23,8 @@ function Rotas() {
                     <Route path="/servicos" element={<Servicos />} />
                     <Route path="/chat" element={<Chat />} />
                     <Route path="/login" element={<Login />} />
-                    <Route path="/perfil/empresa" element={<PerfilEmpresa />} />
+                    <Route path="/dash" element={<Dash />} />
+                    <Route path="/empresa/perfil" element={<PerfilEmpresa />} />
                     <Route path="/cliente/configuracoes" element={<ConfigClient />} />
                     <Route path="/empresa/configuracoes" element={<ConfigEmpresa />} />
                 </Routes>
