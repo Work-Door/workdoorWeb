@@ -28,3 +28,10 @@
 ::-webkit-scrollbar-corner {
   background: #f1f1f1; 
 }
+.carousel.carousel-slider .control-arrow {
+  opacity: 1;
+  background-color: #d9d9d99e !important;
+  margin: 0%;
+  z-index: 1;
+  border-radius: 0.4rem;
+}
