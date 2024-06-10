@@ -4,6 +4,7 @@ import Cadastro from "./Pages/cadastro/Cadastro";
 import Login from "./Pages/login/Login";
 import Home from "./Pages/home/Home";
 import Chat from "./Pages/chat/Chat";
+import Dash from "./Pages/empresa/dash/Dash";
 import NotFound from "./Pages/notFound/NotFound";
 import Servicos from "./Pages/servicos/Servicos";
 import ConfigClient from "./Pages/cliente/configClient/ConfigClient";
@@ -17,6 +18,7 @@ function Rotas() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="*" element={<NotFound />} />
+                    <Route path="/dash" element={<Dash />} />
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/servicos" element={<Servicos />} />
                     <Route path="/chat" element={<Chat />} />

@@ -1,43 +1,47 @@
-import React from 'react'
-import { Container, Content } from './SideBarScript'
-import { 
-  FaTimes, 
-  FaHome, 
-  FaEnvelope, 
-  FaRegSun, 
-  FaUserAlt, 
-  FaIdCardAlt, 
-  FaRegFileAlt,
-  FaRegCalendarAlt,
-  FaChartBar
-} from 'react-icons/fa'
-import styles from './SideBar.module.css'
+import React, { useState } from 'react';
+import styles from './SideBar.module.css';
+import { Avatar } from '@mui/material';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import SettingsIcon from '@mui/icons-material/Settings';
+import SupportIcon from '@mui/icons-material/Support';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-import SidebarItem from './sideBarItem/SideBarItem'
+function Sidebar() {
+  const [isOpen, setIsOpen] = useState(true);
 
-const Sidebar = ({ active }) => {
-
-  const closeSidebar = () => {
-    active(false)
-  }
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <>
-    <Container sidebar={active} className={styles["container-sidebar"]}>
-      <FaTimes onClick={closeSidebar} />  
-      <Content>
-        <SidebarItem Icon={FaHome} Text="Home" />
-        <SidebarItem Icon={FaChartBar} Text="Statistics" />
-        <SidebarItem Icon={FaUserAlt} Text="Users" />
-        <SidebarItem Icon={FaEnvelope} Text="Mail" />
-        <SidebarItem Icon={FaRegCalendarAlt} Text="Calendar" />
-        <SidebarItem Icon={FaIdCardAlt} Text="Employees" />
-        <SidebarItem Icon={FaRegFileAlt} Text="Reports" />
-        <SidebarItem Icon={FaRegSun} Text="Settings" />
-      </Content>
-    </Container>
-    </>
-  )
+    <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed}`}>
+      <div className={styles.logo} onClick={toggleSidebar}>
+        <img src="work-door-logo.png" alt="Work Door" />
+      </div>
+      <nav>
+        <ul>
+          <li className={styles.active}>
+            <DashboardIcon />
+            {isOpen && <a href="#">Dashboard</a>}
+          </li>
+          <li>
+            <SettingsIcon />
+            {isOpen && <a href="#">Configurações</a>}
+          </li>
+          <li>
+            <SupportIcon />
+            {isOpen && <a href="#">Suporte</a>}
+          </li>
+        </ul>
+      </nav>
+      <div className={styles.logout}>
+        <button>
+          <ExitToAppIcon />
+          {isOpen && <span>Sair</span>}
+        </button>
+      </div>
+    </aside>
+  );
 }
 
-export default Sidebar
+export default Sidebar;
