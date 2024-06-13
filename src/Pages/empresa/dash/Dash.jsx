@@ -10,6 +10,7 @@ import Lucro from "../../../utils/assets/icones/icones.svg";
 import Prdutos from "../../../utils/assets/icones/icones-1.svg";
 import Metas from "../../../utils/assets/icones/icones-2.svg";
 import Conexoes from "../../../utils/assets/icones/icones-3.svg";
+import { getId } from "../../../services/auth";
 
 const Dash = () => {
   const [empresaNome, setEmpresaNome] = useState("");
@@ -44,9 +45,9 @@ const Dash = () => {
             <Kpi icon={Conexoes} value="22.150,00" label="Lucro do mês" />
           </div>
           <div className={styles["dash"]}>
-            <div className={styles["dash-group"]}>
-              <Dashboard />
-            </div>
+          <div className={styles["top"]}>
+            <TopServices />
+          </div>
           </div>
         </div>
         <div className={styles["container2"]}>
@@ -59,9 +60,9 @@ const Dash = () => {
           <div className={styles["avaliacao"]}>
             <Avalicao />
           </div>
-          <div className={styles["top"]}>
+          {/* <div className={styles["top"]}>
             <TopServices />
-          </div>
+          </div> */}
         </div>
       </main>
     </>

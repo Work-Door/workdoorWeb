@@ -88,15 +88,11 @@ const Cadastro = () => {
 
     const dadosEmpresa = {
       nome: nome,
+      cnpj: cnpj,
+      cep: cep,
       email: email,
       telefone: telefone,
       senha: senhaEmpresa,
-      cnpj: cnpj,
-      cep: cep,
-      logradouro: logradouro,
-      bairro: bairro,
-      cidade: cidade,
-      estado: estado,
     };
     const dadosUsuario = {
       nomeUsuario: nome,
@@ -107,6 +103,9 @@ const Cadastro = () => {
     };
 
     if (tipoCadastro === "cliente") {
+
+      console.log(dadosUsuario);
+
       if (senha.length < 8) {
         toast.error("A senha deve ter pelo menos 8 caracteres.");
         return;
@@ -117,7 +116,7 @@ const Cadastro = () => {
       }
 
       api
-        .post(`usuarios/register`, dadosUsuario)
+        .post(`usuarios/cadastrar`, dadosUsuario)
         .then(() => {
           toast.success("Usuário criado com sucesso!");
           setTimeout(() => {
@@ -128,8 +127,9 @@ const Cadastro = () => {
           toast.error("Falha ao cadastrar usuário");
         });
     } else if (tipoCadastro === "empresa") {
+      console.log(dadosEmpresa);
       api
-        .post(`empresas`, dadosEmpresa)
+        .post(`empresas/cadastrar`, dadosEmpresa)
         .then(() => {
           toast.success("Empresa criada com sucesso!");
           setTimeout(() => {
@@ -225,7 +225,7 @@ const Cadastro = () => {
                       value={cnpj}
                       onChange={(e) => setCnpj(e.target.value)}
                       icon={faBuilding}
-                      mask={"99.999.999/9999-99"}
+                      // mask={"99.999.999/9999-99"}
                     />
                     <InputField
                       type="text"

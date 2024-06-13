@@ -52,7 +52,28 @@ const Config = () => {
   };
 
   const handleSave = () => {
-    toast.success("Informações salvas com sucesso!");
+    const dadosEmpresa = {
+      nomeEmpresa : nome,
+      emailEmpresa : email,
+      cepEmpresa : cep,
+      cnpjEmpresa : cnpj,
+      cidadeEmpresa : cidade,
+      ufEmpresa : uf,
+      telefoneEmpresa : telefone,
+      logradouroEmpresa : logradouro,
+      bairroEmpresa : bairro,
+      categoriaEmpresa : categoria,
+      senhaEmpresa : senha,
+    }
+
+    api
+      .put("https://6605fc89d92166b2e3c3194b.mockapi.io/empresa/1", dadosEmpresa)
+      .then(() => {
+        toast.success("Informações salvas com sucesso!");
+      })
+      .catch(() => {
+        toast.error("Erro ao salvar informações.");
+      });
   };
 
   return (

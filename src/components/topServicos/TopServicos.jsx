@@ -6,11 +6,11 @@ const TopServices = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    // Função para buscar dados da API
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://6605fc89d92166b2e3c3194b.mockapi.io/servicos');
-        setServices(response.data);
+        const response = await axios.get('https://666afdab7013419182d1d1b6.mockapi.io/dor/servicos');
+        const sortedServices = response.data.sort((a, b) => b.quantidade - a.quantidade);
+        setServices(sortedServices);
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
       }

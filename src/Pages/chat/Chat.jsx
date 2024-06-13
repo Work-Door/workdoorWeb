@@ -4,6 +4,9 @@ import SendIcon from '@mui/icons-material/Send';
 import style from './Chat.module.css';
 import SocketContext from './SocketContext'; // Corrigir o caminho de importação
 import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+import api from '../../api';
+import { Api } from '@mui/icons-material';
 
 export default function Chat() {
   const socket = useContext(SocketContext); // Use o contexto para acessar o socket
@@ -12,6 +15,7 @@ export default function Chat() {
   const [messageList, setMessageList] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [usuarioAtivo, setUsuarioAtivo] = useState(null); // Estado para o usuário ativo
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!socket) return;
@@ -157,6 +161,9 @@ export default function Chat() {
             <div className={style['nome-empresa']}>
               <img src={empresaFoto} alt={empresaNome} />
               <h2>{empresaNome}</h2> {/* Nome da empresa */}
+              {/* <Link to="../servicos">
+                voltar
+              </Link> */}
             </div>
             <div className={style['chat']}>
               <div className={style['mensagens']}>

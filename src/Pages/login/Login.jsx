@@ -19,7 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("cliente"); // Padrão para cliente
-
+  sessionStorage.setItem("usuario", userType);
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
@@ -32,23 +32,61 @@ const Login = () => {
       return;
     }
 
-    api.post(`usuarios/login`, {
+    if (userType === "cliente") {
+      if (email === "" || password === "") {
+        toast.error("Preencha todos os campos!");
+        return;
+      }
+
+      api.post(`usuarios/login`, {
         emailUsuario: email,
         senhaUsuario: password,
       })
-      .then((response) => {
-        console.log(response);
-        LogUser(response.data.id, response.data.token, response.data.usuario);
-        toast.success(`seja bem vindo!`);
-        setTimeout(() => {
-          // toast.success("Carregando pagina!");
-          navigate("/servicos");
-        }, 2000);
+        .then((response) => {
+          console.log(response);
+          LogUser(response.data.id, response.data.token, response.data.usuario);
+          sessionStorage.setItem("token", response.data.token);
+          console.log(response.data);
+          toast.success(`seja bem vindo!`);
+          setTimeout(() => {
+            // toast.success("Carregando pagina!");
+            navigate("/servicos");
+          }, 2000);
+        })
+        .catch(function () {
+          toast.error("Email ou senha incorretos");
+        });
+
+    } else if (userType === "empresa") {
+      if (email === "" || password === "") {
+        toast.error("Preencha todos os campos!");
+        return;
+      } 
+
+      api.post(`empresas/login`, {
+        emailEmpresa: email,
+        senhaEmpresa: password,
       })
-      .catch(function () {
-        toast.error("Email ou senha incorretos");
-      });
+        .then((response) => {
+          console.log(response);
+          LogUser(response.data.id, response.data.token, response.data.usuario);
+          sessionStorage.setItem("id", response.data.idEmpresa);
+          console.log(response.data);
+
+          toast.success(`seja bem vindo!`);
+          setTimeout(() => {
+            // toast.success("Carregando pagina!");
+            navigate("/dash");
+          }, 2000);
+        })
+        .catch(function () {
+          toast.error("Email ou senha incorretos");
+        });
+    }
+
   };
+
+
 
   const options = [
     { value: "cliente", label: "Cliente" },
