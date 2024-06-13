@@ -55,24 +55,16 @@ body {
 
 .nome-empresa {
   width: 100%;
-  height: 30%;
+  height: 18%;
   border-bottom: 1px solid #3741b5;
   border-radius: 3% 3% 0 0;
-  display: flex;
+  justify-content: start;
   align-items: center;
-  flex-direction: row;
 }
 
 .nome-empresa h2 {
-    /* padding: 5%; */
+    padding: 5%;
     font-size: 21px;
-}
-
-.nome-empresa img{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-left: 5%;
 }
 
 .chat {
@@ -88,7 +80,7 @@ body {
     height: 100%;
     margin: 5% 0;
     padding: 0 5%;
-    overflow-y: auto; 
+    overflow-y: auto; /* Adicionado para rolagem */
 }
 
 .input-chat {
@@ -105,10 +97,10 @@ body {
 }
 
 .message-text {
-    /* margin-top: 3%; */
+    margin-top: 3%;
     width: 80%;
-    word-wrap: break-word; 
-    white-space: pre-wrap; 
+    word-wrap: break-word; /* Adicionado para quebra de linha */
+    white-space: pre-wrap; /* Adicionado para preservar espaços em branco */
 }
 
 .message-container {
@@ -116,62 +108,12 @@ body {
 }
 
 .message-mine .message-container {
-  text-align: right; 
+  text-align: right; /* Alinhar as mensagens do usuário à direita */
 }
 
 .contatos {
     width: 100%;
     height: 90%;
     display: flex;
-    flex-direction: column-reverse;
     align-items: center;
-}
-
-.ct {
-  height: 16%;
-  width: 80%;
-  /* background-color: #3741b5; */
-  border: 1px solid #3741b5;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 5%;
-  justify-content: space-evenly;
-}
-
-.ct img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-left: 5%;
-}
-
-.author-image {
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-  margin-right: 10px; 
-}
-
-.message-container {
-  margin-top: 3%;
-  margin-bottom: 3%;
-  width: 80%;
-  padding: 1% 0 0 1%;
-  border: 1px solid #3741b5;
-  border-radius: 10px;
-}
-
-.message-text {
-  width: 100%;
-  text-align: start;
-}
-
-.message-mine {
-  align-items: flex-end;
-}
-
-.message-other {
-  align-items: flex-start;
-
 }

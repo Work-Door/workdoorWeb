@@ -3,27 +3,19 @@ import { useLocation } from "react-router-dom";
 import style from "../navBar/NavBar.module.css";
 import Logo from "../../utils/assets/logo.svg";
 import ImagemPerfil from "../../utils/assets/iconUser.png";
-import { HashLink as Link } from 'react-router-hash-link';
+
+import { Link } from "react-router-dom";
 
 const NavBar = ({ logoInicio }) => {
   const location = useLocation();
   const isServicosPage = location.pathname === "/servicos";
-  const isPerfilPage = location.pathname === "/empresa/perfil";
+  const isPerfilPage = location.pathname === "/perfil/empresa";
 
-  function handleLinkClick(event) {
-    event.preventDefault();
-    const id = event.currentTarget.getAttribute('href').substring(1); // Use event.currentTarget instead of event.target
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      console.warn(`Element with id ${id} not found.`);
-    }
-  }
   return (
     <nav
-      className={`${style["navBar"]} ${isServicosPage ? style["navBarServicos"] : ""
-        } ${isPerfilPage ? style["navBarPerfil"] : ""}`}
+      className={`${style["navBar"]} ${
+        isServicosPage ? style["navBarServicos"] : ""
+      } ${isPerfilPage ? style["navBarPerfil"] : ""}`}
     >
       <div className={style["logo"]}>
         <Link to="/">
@@ -38,7 +30,7 @@ const NavBar = ({ logoInicio }) => {
         <>
           <div id={style["menuLista"]}>
             <ul>
-              <Link somoth to="/#comoFunciona" className={style["btnLink"]}>
+              <Link to={"/"} somoth className={style["btnLink"]}>
                 {" "}
                 <li>Inicio</li>{" "}
               </Link>
@@ -56,12 +48,10 @@ const NavBar = ({ logoInicio }) => {
         <>
           <div id={style["menuLista"]}>
             <ul>
-              <li className={style["btnLink"]}>
-                <a href="#ComoFunciona">Como funciona</a>
-              </li>
-              <li><a href="#Servicos">Serviços</a></li>
-              <li><a href="#SobreNos">Sobre Nós</a></li>
-              <li><a href="#Contato">Contato</a></li>
+              <li>Como Funciona</li>
+              <li>Serviços</li>
+              <li>Sobre Nós</li>
+              <li>Contato</li>
             </ul>
           </div>
           <div id={style["btnsTopo"]}>
