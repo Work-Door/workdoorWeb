@@ -42,13 +42,12 @@
 
 .header {
     display: flex;
-    height: 15vh;
     align-items: center;
     margin-bottom: 20px;
 }
 
 .logo{
-    width: 20%;
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -56,10 +55,8 @@
 }
 
 .title{
-    width: 80%;
-    height: 100%;
-    display: flex;
-    align-items: center;
+    width: 70%;
+    height: 80%;
     text-align: center;
 }
 
@@ -67,7 +64,6 @@
     display: flex;
     justify-content: start;
     text-align: center;
-    margin: 0;
 }
 
 .header .logo img {
@@ -112,11 +108,11 @@
 
 .button-group{
     width: 100%;
+    margin-top: 10px;
     /* background-color: red; */
     display: flex;
     justify-content: end;
     align-items: center;
-    margin-top: 10px;
 }
 
 .saveButton {

@@ -31,21 +31,16 @@
   display: flex;
   align-items: center;
 }
-html {
-  scroll-behavior: smooth;
-}
+
 .navBar #menuLista ul {
   display: flex;
   justify-content: space-between;
   text-decoration: none;
   list-style: none;
-  width: 100%;
-  /* margin: auto; */
+  width: 80%;
+  margin: auto;
 }
-.navBar #menuLista ul li a{
-  text-decoration: none;
-  color: #3a3a3a;
-}
+
 .navBar #menuLista ul li {
   cursor: pointer;
   

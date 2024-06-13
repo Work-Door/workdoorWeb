@@ -42,7 +42,6 @@ const Home = () => {
                 </article>
             </section>
 
-            <div id="ComoFunciona"></div>
             <section id={style["comoFunciona"]}>
                 <div className={style["divTitulo"]}>
                     <h1 className={style["tituloCentro"]}>Impulsione seus serviços de forma Fácil</h1>
@@ -68,7 +67,6 @@ const Home = () => {
                         texto="Após a finalização de um contrato, tanto o cliente quanto a empresa poderão avaliar sua experiência."
                     />
                 </div>
-                <div id="Servicos"></div>
                 <section id={style["areaCardServicoCarroselHome"]}>
                     <div className={style["divTitulo"]}>
                         <h1 className={style["tituloServicos"]}>Serviços existentes</h1>
@@ -98,7 +96,6 @@ const Home = () => {
 
                     </article>
                 </section>
-                <div id="SobreNos"></div>
                 <section id={style["sobreNos"]}>
                     <div className={style["divTitulo"]}>
                         <h1 className={style["tituloCentro"]}>Nós somos a WorkDoor</h1>
@@ -147,7 +144,6 @@ const Home = () => {
                     </div>
                 </section>
             </section>
-            <div id="Contato"></div>
             <Footer />
 
         </main>
