@@ -24,6 +24,8 @@ const Config = () => {
   const [logradouro, setLogradouro] = useState("");
   const [bairro, setBairro] = useState("");
   const [categoria, setCategoria] = useState("");
+  const [senha, setSenha] = useState("");
+
 
   const handleCepChange = (e) => {
     const newCep = e.target.value.replace("-", "");
@@ -57,8 +59,6 @@ const Config = () => {
     <>
       <main className={style.main}>
           <SideBar/>
-        <aside className={style.sidebar}>
-        </aside>
         <div className={style.content}>
           <div className={style.header}>
             <div className={style.logo}>
@@ -66,7 +66,6 @@ const Config = () => {
             </div>
             <div className={style.title}>
               <h1>Confeiteira Carmen</h1>
-              <h2>Informações pessoais</h2>
             </div>
           </div>
           <div className={style.form}>
@@ -142,10 +141,19 @@ const Config = () => {
                   onChange={(e) => setCategoria(e.target.value)}
                   options={[
                     { value: "Refrigeração", label: "Refrigeração" },
-                    { value: "Outro", label: "Outro" },
+                    { value: "Moda", label: "Moda" },
+                    { value: "Tecnologia", label: "Tecnologia" },
+                    { value: "Domestico", label: "Doméstico" },
                   ]}
                 />
               </div>
+              <label htmlFor="senha">Senha</label>
+              <InputField
+                type="password"
+                placeholder="Senha"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+              />
             </div>
           </div>
           <div className={style["button-group"]}>

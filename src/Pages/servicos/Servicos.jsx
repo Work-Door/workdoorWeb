@@ -1,5 +1,6 @@
 import style from './Servicos.module.css';
 import Logo from "../../utils/assets/logo.svg";
+import { getId } from '../../services/auth';
 import LogoAgk from "../../utils/assets/agkLogo.svg";
 import LogoConfeitaria from "../../utils/assets/logoConfeitaria.svg";
 import LogoCostura from "../../utils/assets/logoCostura.svg";
@@ -33,6 +34,9 @@ const Servicos = ({ onFilterChange }) => {
         };
     }, []);
 
+    console.log('================================');
+    console.log(getId());
+    console.log('================================');
 
     return (
         <main id={style["principalServicos"]}>

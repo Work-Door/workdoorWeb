@@ -1,32 +1,31 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import { Input } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
-import style from './Chat.module.css';
-import SocketContext from './SocketContext'; // Corrigir o caminho de importação
+import style from './ChatCliente.module.css';
+import SocketContext from './SocketContext'; 
 import axios from 'axios';
 
 export default function Chat() {
-  const socket = useContext(SocketContext); // Use o contexto para acessar o socket
+  const socket = useContext(SocketContext); 
   const bottomRef = useRef();
   const messageRef = useRef();
   const [messageList, setMessageList] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
-  const [usuarioAtivo, setUsuarioAtivo] = useState(null); // Estado para o usuário ativo
+  const [usuarioAtivo, setUsuarioAtivo] = useState(null); 
 
   useEffect(() => {
     if (!socket) return;
-  
+
     socket.on('receive_message', data => {
-      const messageWithUser = {
+      setMessageList(current => [...current, {
         ...data,
-        authorData: usuarios.find(user => user.id === data.authorId),
-      };
-      setMessageList(current => [...current, messageWithUser]);
+        authorFotoPerfil: usuarios.find(user => user.id === data.authorId)?.fotoPerfil,
+      }]);
     });
-  
+    
+
     return () => socket.off('receive_message');
-  }, [socket, usuarios]);
-  
+  }, [socket]);
 
   useEffect(() => {
     scrollDown();
@@ -70,8 +69,7 @@ export default function Chat() {
         }
       );
       setMessageList(response.data);
-      console.log(response.data);
-      scrollDown();
+      scrollDown(); // Scroll para a última mensagem recebida
     } catch (error) {
       console.error('Erro ao buscar mensagens:', error);
     }
@@ -163,7 +161,7 @@ export default function Chat() {
                 {messageList.map((message, index) => (
                   <div
                     className={`${style['message-container']} ${
-                      message.authorId === socket.id ? style['message-mine'] : style['message-other']
+                      message.authorId === socket.id && style['message-mine']
                     }`}
                     key={index}
                   >

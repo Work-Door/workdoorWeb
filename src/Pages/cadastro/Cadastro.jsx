@@ -64,6 +64,8 @@ const Cadastro = () => {
     const newCep = e.target.value;
     setCep(newCep);
 
+
+
     if (newCep.length === 8) {
       api.get(`https://viacep.com.br/ws/${newCep}/json/`)
         .then(response => {
@@ -81,6 +83,9 @@ const Cadastro = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    sessionStorage.setItem("usuario", tipoCadastro);
+
     const dadosEmpresa = {
       nome: nome,
       email: email,
@@ -199,7 +204,7 @@ const Cadastro = () => {
                       value={cpf}
                       onChange={(e) => setCpf(e.target.value)}
                       icon={faUser}
-                      mask={"999.999.999-99"}
+                      // mask={"999.999.999-99"}
                     />
                     <InputField
                       type="password"

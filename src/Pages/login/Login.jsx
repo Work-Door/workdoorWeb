@@ -38,7 +38,7 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response);
-        // LogUser(response.data.userId, response.data.token);
+        LogUser(response.data.id, response.data.token, response.data.usuario);
         toast.success(`seja bem vindo!`);
         setTimeout(() => {
           // toast.success("Carregando pagina!");
